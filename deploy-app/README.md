@@ -73,7 +73,7 @@ One of the most important things an organization can do when adopting Containers
 helm version
 # Install Anchore
 kubectl create namespace anchore
-helm install anchore stable/anchore-engine --namespace anchore
+helm install  stable/anchore-engine --name anchore --namespace anchore
 # Check Status
 helm status anchore --namespace anchore
 helm list --namespace anchore
