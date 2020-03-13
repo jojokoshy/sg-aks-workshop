@@ -298,6 +298,10 @@ Now we will need to taint the existing nodepool, so no new workloads are schedul
 ```bash
 kubectl taint node aks-agentpool-31778897-vmss000000 aks-agentpool-31778897-vmss000001 aks-agentpool-31778897-vmss000002 upgrade=true:NoSchedule
 ```
+Or using easier syntax below. All nodes within a node pool will have a label with the key = nodepool and value = <value of nodepool name specified at node pool creation time>
+```bash
+kubectl taint node upgrade=true:NoSchedule -l nodepool=nodepoolblue
+```bash
 
 Now the nodes are tainted we can now drain each node to move the workloads over to the upgraded node pool.
 
